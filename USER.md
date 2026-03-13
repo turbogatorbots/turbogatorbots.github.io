@@ -6,7 +6,7 @@ _Learn about the person you're helping. Update this as you go._
 - **What to call them:** Charlie
 - **Pronouns:** _(optional)_
 - **Timezone:** America/New_York
-- **Notes:**
+- **Notes:** Do not delete Charlie's files without explicit permission.
 
 ## Context
 
