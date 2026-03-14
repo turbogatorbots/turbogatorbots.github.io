@@ -1,0 +1,215 @@
+Thermal Image Segmentation Applicant Evaluation
+Applicant: Hongshicheng
+Repository reviewed: https://github.com/shicheng0815/thermal-images
+Date: 2026-03-14
+
+Bottom line
+This is not yet a research-grade or fully reproducible submission, but it does show real effort and a workable prototype. Overall assessment: promising but immature.
+
+What is in the repository
+There are two main parts:
+1. Simple utilities
+   - grey2thermal.py
+   - json2png.py
+2. Main pipeline
+   - thermal/detection_then_segmentation/code/
+   - uses YOLO for detection, then gamma + Otsu thresholding for segmentation inside the detected ROI
+   - includes a saved model: weights/best.pt
+   - includes a tiny test set with images, JSON annotations, masks, and saved result figures
+
+Core idea of the method
+1. Detect plant region with YOLO
+2. Restrict to center-ish detections
+3. Crop/intersect with a fixed vertical ROI
+4. Threshold the V channel in HSV after gamma correction
+5. Compare against LabelMe polygon annotations using IoU / precision / recall
+
+This is a reasonable baseline-style pipeline.
+
+Reproducibility check
+I pulled the repo and attempted to run the included evaluation script:
+- thermal/detection_then_segmentation/code/seg_results.py
+
+What failed immediately
+The script did not run out of the box. First failure:
+- ModuleNotFoundError: No module named 'tqdm'
+
+This is minor by itself, but it exposes larger reproducibility issues.
+
+Reproducibility weaknesses
+- No README
+- No requirements.txt / environment.yml / pyproject.toml
+- No setup or run instructions
+- Hard-coded Windows paths in several scripts, e.g. G:\charlie\...
+- Some main.py files are still PyCharm template placeholders
+- Repo contains .pyc files and trained weights, but not a clean reproducible environment
+- Training depends on data that is not included
+- The shipped best.pt can be used for inference, but cannot verify how it was trained
+
+What I could independently verify
+The repo includes:
+- 6 test images
+- 6 manual JSON annotations
+- 6 saved masks
+- saved result images
+- evaluation_metrics.txt
+
+I independently recomputed metrics from the saved masks vs JSON annotations and obtained approximately:
+- mean IoU: 0.9241
+- mean precision: 0.9616
+- mean recall: 0.9588
+
+But the repository's evaluation_metrics.txt reports:
+- mean IoU: 0.8168
+- mean precision: 0.9907
+- mean recall: 0.8230
+
+These numbers do not match the saved masks in test/mask/.
+
+This suggests at least one of the following:
+1. The saved masks are not the same outputs used to generate evaluation_metrics.txt
+2. The evaluation script changed after results were produced
+3. There is a resizing or preprocessing mismatch
+4. The reported metrics are stale or manually copied
+
+This is a serious reproducibility red flag.
+
+Code quality assessment
+Good signs
+- The applicant built a nontrivial pipeline rather than only providing a notebook
+- Code is somewhat modular:
+  - image_segmenter.py
+  - json2yolo.py
+  - seg_results.py
+- There is an attempt to include training, inference, evaluation, and visualization
+- The segmentation logic is easy to understand
+
+This suggests the student can likely implement and iterate.
+
+Weak signs
+1. Hard-coded paths / machine-specific code
+   Example paths include G:\charlie\method3\json and G:\charlie\detection_then_segmentation\...
+   This makes the code fragile and non-portable.
+
+2. Missing project hygiene
+   Missing:
+   - README
+   - requirements
+   - usage instructions
+   - dataset description
+   - experiment log
+   - model card / result summary
+
+3. Placeholder and dead code
+   Some files are still generic IDE boilerplate:
+   - thermal/main.py
+   - thermal/test.py
+   This makes the repo feel unpolished.
+
+4. Repository contamination
+   Includes:
+   - .pyc files
+   - model weights committed into source
+   - mixed GUI / preprocessing / training / evaluation in one repo
+   - inconsistent organization
+
+5. Evaluation methodology is limited
+   The pipeline appears hand-tuned:
+   - fixed image size
+   - fixed crop margins
+   - only center detections used
+   - gamma fixed at 1.5
+   - Otsu on V channel only
+
+   This may work on the provided examples, but likely has limited robustness across domains/settings.
+
+6. Very small visible test set
+   Only 6 visible evaluation examples are included. That is not enough to judge generalization.
+
+Technical judgment of the method
+The method is reasonable as a quick classical baseline plus detector:
+- YOLO localizes the approximate object region
+- classical thresholding extracts the object inside the ROI
+
+Pros
+- simple
+- interpretable
+- likely fast
+- useful if annotated data is limited
+
+Cons
+- brittle to illumination / sensor shift / background changes
+- fixed ROI assumptions may break badly
+- not a full segmentation model
+- not clearly benchmarked against alternatives
+
+If the assignment was simply to build something functional for thermal image segmentation, this is acceptable.
+If the assignment was to demonstrate research-quality rigor and reproducibility, this is not sufficient.
+
+Overall evaluation of the applicant
+It is useful to separate research potential from current polish.
+
+Positive interpretation
+The applicant likely:
+- can code
+- can assemble a pipeline from multiple components
+- can work with annotations and metrics
+- can train/run YOLO-based workflows
+- can produce something functional fairly quickly
+
+Negative interpretation
+The applicant currently appears weak in:
+- reproducibility
+- software hygiene
+- experiment documentation
+- result traceability
+- scientific rigor in reporting
+
+Overall read
+This feels like a student who can build prototypes but has not yet learned clean research engineering.
+
+That can still be a good RA candidate if:
+- you want someone coachable
+- you value implementation ability
+- the slot is junior / exploratory
+
+Less strong if:
+- you need immediate independence
+- you need rigorous experiment management
+- you need publication-ready engineering now
+
+Suggested rating
+- Implementation ability: 7/10
+- Reproducibility: 3/10
+- Code hygiene: 4/10
+- Research maturity: 4.5/10
+- Overall potential: 6/10
+
+Decision-oriented summary
+- Worth interviewing: yes
+- Strong enough for a confident funded RA decision based on this repo alone: no
+
+Questions to ask the student next
+1. Provide a clean README
+   - setup
+   - dataset format
+   - how to run train/eval
+   - expected outputs
+2. Provide a reproducible environment
+   - requirements.txt or environment.yml
+3. Provide a one-command rerun
+   - from raw test images + annotations to metrics
+4. Explain the metric mismatch
+   - why evaluation_metrics.txt does not match the saved masks
+5. Provide ablations / comparison
+   - threshold-only
+   - YOLO-only box prior
+   - detector + threshold
+   - maybe U-Net / YOLO-seg baseline
+6. Provide generalization evidence
+   - train/val/test split
+   - number of images
+   - whether test set was held out
+
+Short internal summary
+The repo shows real hands-on implementation ability and a workable thermal-image pipeline, but it is not reproducible out of the box and the reported metrics are not traceable to the included saved outputs. This is evidence of coding potential rather than research maturity. Worth interviewing if the goal is to identify a coachable builder; not strong enough on its own for a confident funded RA decision.
