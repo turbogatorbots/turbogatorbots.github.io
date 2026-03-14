@@ -177,7 +177,8 @@
       }
 
       .team-grid,
-      .info-grid {
+      .info-grid,
+      .gallery-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
         gap: 1rem;
@@ -291,10 +292,22 @@
     <main>
       <section>
         <div class="container">
-          <div class="card photo-card">
-            <img src="images/championship-team.jpg" alt="Turbo Gatorbots celebrating their Florida state championship win" />
-            <div class="caption">
-              Turbo Gatorbots celebrating their Florida state championship win and their path to the World Championship in Houston.
+          <h2 class="section-title">Gallery</h2>
+          <p class="section-intro">
+            A few moments from the Turbo Gatorbots journey — from competition day energy to championship celebration.
+          </p>
+          <div class="gallery-grid">
+            <div class="card photo-card">
+              <img src="images/championship-team.jpg" alt="Turbo Gatorbots celebrating their Florida state championship win" />
+              <div class="caption">
+                Team celebration after winning the Florida state championship.
+              </div>
+            </div>
+            <div class="card photo-card">
+              <img src="images/competition-floor.jpg" alt="Turbo Gatorbots competing on the First Lego League competition floor" />
+              <div class="caption">
+                Turbo Gatorbots in action on the competition floor during an FLL event.
+              </div>
             </div>
           </div>
         </div>

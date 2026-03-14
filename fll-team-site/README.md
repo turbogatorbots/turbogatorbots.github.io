@@ -24,3 +24,4 @@ Things that can be updated later:
 ## Current media
 
 - `images/championship-team.jpg` — state championship team photo
+- `images/competition-floor.jpg` — competition floor action photo
