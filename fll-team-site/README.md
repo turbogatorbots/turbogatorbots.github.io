@@ -25,3 +25,4 @@ Things that can be updated later:
 
 - `images/championship-team.jpg` — state championship team photo
 - `images/competition-floor.jpg` — competition floor action photo
+- `images/champion-banner.jpg` — team holding championship banner photo
