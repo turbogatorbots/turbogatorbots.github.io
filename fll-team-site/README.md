@@ -13,11 +13,14 @@ open index.html
 ## Notes
 
 Things that can be updated later:
-- team name spelling
 - member bios
 - city/state
 - coach name
 - robot name
-- photos
+- more photos
 - sponsors or donation info
 - contact details
+
+## Current media
+
+- `images/championship-team.jpg` — state championship team photo

@@ -116,6 +116,23 @@
         backdrop-filter: blur(10px);
       }
 
+      .photo-card {
+        overflow: hidden;
+        padding: 0;
+      }
+
+      .photo-card img {
+        width: 100%;
+        display: block;
+        aspect-ratio: 16 / 10;
+        object-fit: cover;
+      }
+
+      .photo-card .caption {
+        padding: 1rem 1.25rem 1.25rem;
+        color: var(--muted);
+      }
+
       .hero-card {
         padding: 1.5rem;
       }
@@ -272,6 +289,17 @@
     </header>
 
     <main>
+      <section>
+        <div class="container">
+          <div class="card photo-card">
+            <img src="images/championship-team.jpg" alt="Turbo Gatorbots celebrating their Florida state championship win" />
+            <div class="caption">
+              Turbo Gatorbots celebrating their Florida state championship win and their path to the World Championship in Houston.
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section id="team">
         <div class="container">
           <h2 class="section-title">Meet the Team</h2>
