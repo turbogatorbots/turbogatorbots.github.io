@@ -14,11 +14,10 @@ open index.html
 
 Things that can be updated later:
 - member bios
-- city/state
 - coach name
 - robot name
 - more photos
-- sponsors or donation info
+- sponsor logos or donation link
 - contact details
 
 ## Current media
