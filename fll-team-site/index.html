@@ -43,7 +43,41 @@
       }
 
       .hero {
-        padding: 5rem 0 3rem;
+        padding: 1.5rem 0 3rem;
+      }
+
+      .hero-banner {
+        position: relative;
+        min-height: 64vh;
+        border-radius: 30px;
+        overflow: hidden;
+        margin-bottom: 2rem;
+        box-shadow: var(--shadow);
+        border: 1px solid var(--border);
+        background: #081120;
+      }
+
+      .hero-banner img {
+        width: 100%;
+        height: 100%;
+        min-height: 64vh;
+        object-fit: cover;
+        display: block;
+        filter: saturate(1.05) contrast(1.02);
+      }
+
+      .hero-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg, rgba(7, 17, 31, 0.18) 0%, rgba(7, 17, 31, 0.55) 45%, rgba(7, 17, 31, 0.92) 100%);
+      }
+
+      .hero-banner-content {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        padding: 2rem;
       }
 
       .badge {
@@ -128,6 +162,10 @@
         object-fit: cover;
       }
 
+      .gallery-grid .photo-card:first-child {
+        grid-column: span 2;
+      }
+
       .photo-card .caption {
         padding: 1rem 1.25rem 1.25rem;
         color: var(--muted);
@@ -154,6 +192,12 @@
         border-radius: 18px;
         background: rgba(255,255,255,0.06);
         border: 1px solid rgba(255,255,255,0.08);
+      }
+
+      .stat span {
+        display: block;
+        color: var(--muted);
+        font-size: 0.95rem;
       }
 
       .stat strong {
@@ -242,53 +286,77 @@
           grid-template-columns: 1fr;
         }
 
+        .hero-banner,
+        .hero-banner img {
+          min-height: 48vh;
+        }
+
+        .hero-banner-content {
+          padding: 1.25rem;
+        }
+
+        .gallery-grid .photo-card:first-child {
+          grid-column: span 1;
+        }
+
         h1 { max-width: none; }
       }
     </style>
   </head>
   <body>
     <header class="hero">
-      <div class="container hero-grid">
-        <div>
-          <span class="badge">🤖 First Lego League • Road to Houston</span>
-          <h1>Turbo Gatorbots</h1>
-          <p>
-            We are a First Lego League team made up of five young builders, coders,
-            and problem-solvers: <strong>Andy, Jacob, James, Dennis, and Daniel</strong>.
-            After a season of teamwork, engineering, and persistence, we are excited to be
-            heading to the <span class="highlight">World Championship in Houston, Texas</span>
-            at the end of April.
-          </p>
-          <div class="cta-row">
-            <a class="button primary" href="#team">Meet the Team</a>
-            <a class="button secondary" href="#journey">Our Journey</a>
+      <div class="container">
+        <div class="hero-banner">
+          <img src="images/championship-team.jpg" alt="Turbo Gatorbots celebrating their Florida state championship win" />
+          <div class="hero-overlay"></div>
+          <div class="hero-banner-content">
+            <span class="badge">🤖 First Lego League • Road to Houston</span>
+            <h1>Turbo Gatorbots</h1>
+            <p>
+              We are a First Lego League team made up of five young builders, coders,
+              and problem-solvers: <strong>Andy, Jacob, James, Dennis, and Daniel</strong>.
+              After a season of teamwork, engineering, and persistence, we are excited to be
+              heading to the <span class="highlight">World Championship in Houston, Texas</span>
+              at the end of April.
+            </p>
+            <div class="cta-row">
+              <a class="button primary" href="#team">Meet the Team</a>
+              <a class="button secondary" href="#journey">Our Journey</a>
+            </div>
           </div>
         </div>
 
-        <aside class="hero-card photo-card">
-          <img src="images/championship-team.jpg" alt="Turbo Gatorbots celebrating their Florida state championship win" />
-          <div class="caption">
-            Turbo Gatorbots celebrating their Florida state championship win and getting ready for Houston.
+        <div class="hero-grid">
+          <div class="card">
+            <h2>Why this matters</h2>
+            <p>
+              Turbo Gatorbots earned the chance to compete on the world stage through hard work,
+              teamwork, and a lot of robot testing. This site shares the team’s story as they prepare
+              for Houston.
+            </p>
           </div>
-          <div class="stats">
-            <div class="stat">
-              <strong>5</strong>
-              Team Members
+
+          <aside class="hero-card">
+            <div class="stats">
+              <div class="stat">
+                <strong>5</strong>
+                <span>Team Members</span>
+              </div>
+              <div class="stat">
+                <strong>1</strong>
+                <span>World Championship Goal</span>
+              </div>
+              <div class="stat">
+                <strong>FLL</strong>
+                <span>Robotics Competition</span>
+              </div>
+              <div class="stat">
+                <strong>April</strong>
+                <span>Houston Trip</span>
+              </div>
             </div>
-            <div class="stat">
-              <strong>1</strong>
-              Big Goal: Houston
-            </div>
-            <div class="stat">
-              <strong>FLL</strong>
-              Robotics Competition
-            </div>
-            <div class="stat">
-              <strong>April</strong>
-              Championship Trip
-            </div>
-          </div>
-        </aside>
+          </aside>
+        </div>
       </div>
     </header>
 
