@@ -6,7 +6,7 @@ _Learn about the person you're helping. Update this as you go._
 - **What to call them:** Charlie
 - **Pronouns:** _(optional)_
 - **Timezone:** America/New_York
-- **Notes:** Do not delete Charlie's files without explicit permission. For calendars, only read them, send reminders, and prepare reports; do not create or delete calendar events. Do not send calendar information to external sources.
+- **Notes:** Do not delete Charlie's files without explicit permission. For calendars, only read them, send reminders, and prepare reports; do not create or delete calendar events. Do not send calendar information to external sources. For scientific paper PDFs saved to Downloads, use `~/Downloads/Literature/` and name files as `FirstAuthorSurname_Year_3Keywords.pdf`.
 
 ## Context
 
