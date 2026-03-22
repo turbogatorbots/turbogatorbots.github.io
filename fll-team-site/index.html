@@ -8,6 +8,7 @@
       name="description"
       content="Meet Turbo Gatorbots, a First LEGO League team from Gainesville, Florida, heading to the World Championship in Houston, Texas."
     />
+    <link rel="icon" type="image/jpeg" href="images/team-logo.jpg" />
     <style>
       :root {
         --bg: #07111f;
@@ -85,15 +86,20 @@
       }
 
       .brand-mark {
-        width: 42px;
-        height: 42px;
+        width: 46px;
+        height: 46px;
         border-radius: 14px;
-        display: grid;
-        place-items: center;
-        background: linear-gradient(135deg, var(--accent), var(--accent-2));
-        color: #04111f;
-        font-size: 1.35rem;
+        overflow: hidden;
+        flex: 0 0 46px;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.14);
         box-shadow: var(--shadow);
+      }
+
+      .brand-mark img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
       }
 
       .nav-links {
@@ -455,7 +461,7 @@
     <header class="site-header">
       <div class="container nav">
         <a class="brand" href="#top">
-          <span class="brand-mark">🤖</span>
+          <span class="brand-mark"><img src="images/team-logo.jpg" alt="Turbo Gatorbots team logo" /></span>
           <span>Turbo Gatorbots</span>
         </a>
         <nav class="nav-links">
