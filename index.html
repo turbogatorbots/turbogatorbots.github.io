@@ -8,6 +8,7 @@
       name="description"
       content="Meet Turbo Gatorbots, a First LEGO League team from Gainesville, Florida, heading to the World Championship in Houston, Texas."
     />
+    <link rel="icon" type="image/jpeg" href="images/team-logo.jpg" />
     <style>
       :root {
         --bg: #07111f;
@@ -79,21 +80,46 @@
       .brand {
         display: flex;
         align-items: center;
-        gap: 0.8rem;
+        gap: 0.9rem;
         font-weight: 800;
         letter-spacing: 0.02em;
       }
 
+      .brand-text {
+        display: flex;
+        flex-direction: column;
+        line-height: 1.05;
+      }
+
+      .brand-text strong {
+        font-size: 1rem;
+      }
+
+      .brand-text span {
+        color: var(--muted);
+        font-size: 0.78rem;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+      }
+
       .brand-mark {
-        width: 42px;
-        height: 42px;
-        border-radius: 14px;
-        display: grid;
-        place-items: center;
-        background: linear-gradient(135deg, var(--accent), var(--accent-2));
-        color: #04111f;
-        font-size: 1.35rem;
-        box-shadow: var(--shadow);
+        width: 58px;
+        height: 58px;
+        border-radius: 18px;
+        overflow: hidden;
+        flex: 0 0 58px;
+        padding: 0.35rem;
+        background: linear-gradient(180deg, #1f6fe5 0%, #144fb0 100%);
+        border: 1px solid rgba(255, 255, 255, 0.22);
+        box-shadow: 0 16px 30px rgba(3, 18, 45, 0.42);
+      }
+
+      .brand-mark img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        border-radius: 12px;
       }
 
       .nav-links {
@@ -455,8 +481,11 @@
     <header class="site-header">
       <div class="container nav">
         <a class="brand" href="#top">
-          <span class="brand-mark">🤖</span>
-          <span>Turbo Gatorbots</span>
+          <span class="brand-mark"><img src="images/team-logo.jpg" alt="Turbo Gatorbots team logo" /></span>
+          <span class="brand-text">
+            <strong>Turbo Gatorbots</strong>
+            <span>First LEGO League Team</span>
+          </span>
         </a>
         <nav class="nav-links">
           <a href="#about">About</a>
