@@ -323,13 +323,15 @@
       .team-grid,
       .gallery-grid,
       .support-grid,
-      .contact-grid {
+      .contact-grid,
+      .experience-grid {
         display: grid;
         gap: 1rem;
       }
 
       .grid-3,
-      .support-grid {
+      .support-grid,
+      .experience-grid {
         grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       }
 
@@ -383,6 +385,60 @@
         color: var(--muted);
       }
 
+      .experience-preview {
+        position: relative;
+        overflow: hidden;
+        border-radius: 22px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        min-height: 220px;
+        padding: 1.25rem;
+        background:
+          radial-gradient(circle at top right, rgba(96, 165, 250, 0.22), transparent 30%),
+          radial-gradient(circle at bottom left, rgba(94, 234, 212, 0.16), transparent 35%),
+          rgba(255, 255, 255, 0.04);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 1rem;
+      }
+
+      .experience-badge {
+        align-self: flex-start;
+        padding: 0.45rem 0.8rem;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.14);
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        color: var(--text);
+        font-size: 0.8rem;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+
+      .experience-icon {
+        width: 92px;
+        height: 92px;
+        border-radius: 24px;
+        display: grid;
+        place-items: center;
+        font-size: 2.8rem;
+        font-weight: 800;
+        color: #04111f;
+        background: linear-gradient(135deg, var(--accent), var(--accent-2));
+        box-shadow: 0 16px 30px rgba(3, 18, 45, 0.38);
+      }
+
+      .experience-preview-text strong {
+        display: block;
+        font-size: 1.2rem;
+        margin-bottom: 0.35rem;
+      }
+
+      .experience-preview-text span {
+        color: var(--muted);
+        font-size: 0.95rem;
+      }
+
       .timeline {
         display: grid;
         gap: 1rem;
@@ -412,6 +468,31 @@
 
       .support-box {
         background: linear-gradient(135deg, rgba(94, 234, 212, 0.12), rgba(96, 165, 250, 0.12));
+      }
+
+      .experience-card {
+        display: flex;
+        flex-direction: column;
+        gap: 0.9rem;
+      }
+
+      .experience-kicker {
+        color: var(--accent);
+        font-size: 0.82rem;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .experience-card p {
+        color: var(--muted);
+      }
+
+      .experience-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        margin-top: auto;
       }
 
       .footer {
@@ -491,6 +572,7 @@
           <a href="#about">About</a>
           <a href="#team">Team</a>
           <a href="#gallery">Gallery</a>
+          <a href="#experiences">Experiences</a>
           <a href="#journey">Journey</a>
           <a href="#support">Support</a>
           <a href="#contact" class="nav-cta">Contact</a>
@@ -696,6 +778,59 @@
         </div>
       </section>
 
+      <section id="experiences">
+        <div class="container">
+          <div class="section-head">
+            <div>
+              <h2 class="section-title">Interactive Experiences</h2>
+              <p class="section-intro">
+                Explore two new pages built for visitors who want a closer look at our robot and a more playful glimpse into our team story.
+              </p>
+            </div>
+          </div>
+
+          <div class="experience-grid">
+            <article class="card experience-card">
+              <div class="experience-preview" aria-hidden="true">
+                <div class="experience-badge">Interactive Robot View</div>
+                <div class="experience-icon">🤖</div>
+                <div class="experience-preview-text">
+                  <strong>Part Explorer</strong>
+                  <span>Inspect the robot, rotate views, and tap hotspots to learn what each system does.</span>
+                </div>
+              </div>
+              <div class="experience-kicker">Interactive Robot View</div>
+              <h3>Part Explorer</h3>
+              <p>
+                Open an interactive robot inspection page with clickable hotspots, rotating views, and explanations of the parts and systems behind the build.
+              </p>
+              <div class="experience-actions">
+                <a class="button primary" href="bot.html">Launch Part Explorer</a>
+              </div>
+            </article>
+
+            <article class="card experience-card">
+              <div class="experience-preview" aria-hidden="true">
+                <div class="experience-badge">Story Experience</div>
+                <div class="experience-icon">📖</div>
+                <div class="experience-preview-text">
+                  <strong>Indiana Jones &amp; Turbo Gatorbots</strong>
+                  <span>Open a comic-style story viewer with auto-play and manual page controls.</span>
+                </div>
+              </div>
+              <div class="experience-kicker">Story Experience</div>
+              <h3>Indiana Jones &amp; Turbo Gatorbots</h3>
+              <p>
+                Flip through a comic-style adventure that presents the team in a fun, visual way with an auto-play story viewer and manual page controls.
+              </p>
+              <div class="experience-actions">
+                <a class="button primary" href="cartoon.html">Open the Cartoon</a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
       <section id="journey">
         <div class="container">
           <div class="section-head">
@@ -788,12 +923,12 @@
       <section id="contact">
         <div class="container contact-grid">
           <article class="card">
-            <h2 class="section-title">Coach & Team Support</h2>
+            <h2 class="section-title">Coaches & Team Support</h2>
             <p>
-              Our coach helps guide Turbo Gatorbots with encouragement, organization, and support while giving the team room to experiment, solve problems, and grow through the engineering process.
+              <strong>Coach Chi</strong> and <strong>Coach Du</strong> help guide Turbo Gatorbots with encouragement, organization, and support while giving the team room to experiment, solve problems, and grow through the engineering process.
             </p>
             <p>
-              From practice sessions to competition day, that support has helped the team stay prepared, confident, and excited for this journey.
+              From practice sessions to competition day, their support has helped the team stay prepared, confident, and excited for this journey.
             </p>
           </article>
 
