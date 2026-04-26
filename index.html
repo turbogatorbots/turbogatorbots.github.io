@@ -347,6 +347,13 @@
         grid-template-columns: 1.1fr 0.9fr;
       }
 
+      .qr-grid {
+        display: grid;
+        grid-template-columns: 0.8fr 1.2fr;
+        gap: 1rem;
+        align-items: stretch;
+      }
+
       .card {
         padding: 1.35rem;
       }
@@ -495,6 +502,38 @@
         margin-top: auto;
       }
 
+      .qr-card {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      .qr-image-wrap {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem;
+        border-radius: 24px;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .qr-image-wrap img {
+        width: min(100%, 240px);
+        aspect-ratio: 1 / 1;
+        background: white;
+        padding: 0.75rem;
+        border-radius: 20px;
+      }
+
+      .qr-url {
+        display: inline-block;
+        margin-top: 0.6rem;
+        color: var(--accent);
+        font-weight: 700;
+        word-break: break-word;
+      }
+
       .footer {
         padding: 2rem 0 4rem;
         color: var(--muted);
@@ -511,7 +550,8 @@
 
       @media (max-width: 920px) {
         .hero-wrap,
-        .contact-grid {
+        .contact-grid,
+        .qr-grid {
           grid-template-columns: 1fr;
         }
 
@@ -943,6 +983,24 @@
             <div class="cta-row">
               <a class="button primary" href="#support">Support Us</a>
               <a class="button secondary" href="#gallery">View Photos</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="qr-code">
+        <div class="container qr-grid">
+          <article class="card qr-card">
+            <h2 class="section-title">Scan Our Website</h2>
+            <p>
+              Use this QR code to open the Turbo Gatorbots website quickly on a phone or share it at events, presentations, and community tables.
+            </p>
+            <a class="qr-url" href="https://turbogatorbots.github.io/">turbogatorbots.github.io</a>
+          </article>
+
+          <article class="card qr-card">
+            <div class="qr-image-wrap">
+              <img src="images/site-qr.png" alt="QR code linking to the Turbo Gatorbots website" />
             </div>
           </article>
         </div>
